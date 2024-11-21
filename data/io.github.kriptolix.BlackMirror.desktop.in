@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=blackmirror
+Exec=blackmirror
+Icon=io.github.kriptolix.BlackMirror
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true
