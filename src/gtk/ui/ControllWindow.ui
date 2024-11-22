@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="ControllWindow" parent="AdwWindow">
+    <property name="content">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar"></object>
+        </child>
+        <property name="content">
+          <object class="GtkBox" id="test">
+            <property name="orientation">1</property>
+            <property name="valign">3</property>
+            <property name="halign">3</property>
+            <property name="vexpand">false</property>
+            <property name="hexpand">false</property>
+            <child>
+              <object class="GtkButton" id="_power">
+                <property name="child">
+                  <object class="GtkImage">
+                    <property name="icon-name">system-shutdown-symbolic</property>
+                    <property name="pixel-size">28</property>
+                  </object>
+                </property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="_sound_plus">
+                <property name="child">
+                  <object class="GtkImage">
+                    <property name="icon-name">audio-volume-high-rtl-symbolic</property>
+                    <property name="pixel-size">28</property>
+                  </object>
+                </property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="_sound_minus">
+                <property name="child">
+                  <object class="GtkImage">
+                    <property name="icon-name">audio-volume-low-rtl-symbolic</property>
+                    <property name="pixel-size">28</property>
+                  </object>
+                </property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="_more">
+                <property name="child">
+                  <object class="GtkImage">
+                    <property name="icon-name">view-more-horizontal-symbolic</property>
+                    <property name="pixel-size">28</property>
+                  </object>
+                </property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+            <style>
+              <class name="toolbar"/>
+            </style>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>
