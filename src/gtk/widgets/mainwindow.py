@@ -20,12 +20,19 @@
 from gi.repository import Adw
 from gi.repository import Gtk
 
+import subprocess
+
 @Gtk.Template(resource_path='/io/github/kriptolix/BlackMirror'
               '/src/gtk/ui/MainWindow.ui')
 class BlackmirrorWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'BlackmirrorWindow'
 
-    label = Gtk.Template.Child()
+    test = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+        self.test.connect("clicked", self._test)
+
+    def _test(self, button):
+       subprocess.Popen('scrcpy --video-codec=h265 -m1920 --max-fps=60 --no-audio -K', shell=True)

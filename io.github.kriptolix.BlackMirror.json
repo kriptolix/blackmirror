@@ -4,6 +4,16 @@
     "runtime-version" : "47",
     "sdk" : "org.gnome.Sdk",
     "command" : "blackmirror",
+    "add-extensions": {
+        "org.freedesktop.Platform.ffmpeg-full": {
+            "directory": "lib/ffmpeg",
+            "version": "24.08",
+            "add-ld-path": "."
+        }
+    },
+    "cleanup-commands": [
+        "mkdir -p ${FLATPAK_DEST}/lib/ffmpeg"
+    ],
     "finish-args" : [
         "--share=network",
         "--share=ipc",
@@ -23,6 +33,61 @@
         "*.a"
     ],
     "modules" : [
+        {
+            "name": "libusb",
+            "config-opts": [ "--disable-static" ],
+            "cleanup": [
+                "/lib/*.la",
+                "/lib/pkgconfig",
+                "/include"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libusb/libusb/releases/download/v1.0.27/libusb-1.0.27.tar.bz2",
+                    "sha256": "ffaa41d741a8a3bee244ac8e54a72ea05bf2879663c098c82fc5757853441575"
+                }
+            ],
+            "post-install": [
+                "install -Dm644 COPYING ${FLATPAK_DEST}/share/licenses/libusb/COPYING"
+            ]
+        },
+        {
+            "name": "scrcpy",
+            "buildsystem": "meson",
+            "config-opts": [
+                "--buildtype=release",
+                "--strip",
+                "-Db_lto=true",
+                "-Dprebuilt_server=scrcpy-server-v2.7"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/Genymobile/scrcpy/archive/refs/tags/v2.7.tar.gz",
+                    "sha256": "3ceea215f6eccb59535f68a16db6db2b05a8a1c91bdcb4a6e222d3093a9daf8c"
+                },
+                {
+                    "type": "file",
+                    "url": "https://github.com/Genymobile/scrcpy/releases/download/v2.7/scrcpy-server-v2.7",
+                    "sha256": "a23c5659f36c260f105c022d27bcb3eafffa26070e7baa9eda66d01377a1adba"
+                }
+            ]
+        },
+        {
+            "name": "adb",
+            "buildsystem": "simple",
+            "build-commands": [
+                "install -D adb /app/bin/adb"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://dl.google.com/android/repository/platform-tools_r35.0.2-linux.zip",
+                    "sha256": "acfdcccb123a8718c46c46c059b2f621140194e5ec1ac9d81715be3d6ab6cd0a"
+                }
+            ]
+        },
         {
             "name" : "blackmirror",
             "builddir" : true,
