@@ -35,4 +35,4 @@ class BlackmirrorWindow(Adw.ApplicationWindow):
         self.test.connect("clicked", self._test)
 
     def _test(self, button):
-       subprocess.Popen('scrcpy --video-codec=h265 -m1920 --max-fps=60 --no-audio -K', shell=True)
+        print('teste')
