@@ -6,3 +6,4 @@ data/io.github.kriptolix.BlackMirror.gschema.xml
 src/main.py
 src/window.py
 src/window.ui
+src/exemple.yaml

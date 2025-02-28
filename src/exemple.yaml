@@ -1,0 +1,59 @@
+region:
+  name: Kyoto
+  weather:    
+    - summer:
+      - occurrence: 
+          name: chuva
+          severity: 0
+          evolotions:
+            - quente e abafado
+            - chuva forte
+            - sereno
+            - garoa
+            - chuva torrencial
+            - limpo e ameno
+      - occurrence: 
+          name: garoa
+          severity: 0
+          evolotions:
+            - chuva
+            - sereno
+            - nublado e quente
+            - quente e úmido 
+            - tempestade 
+            - limpo e ameno
+      - occurrence: 
+          name: quente e úmido
+          severity: 1
+          evolotions:
+          - garoa
+          - nublado e quente
+          - quente e ventando
+          - chuva
+          - quente e úmido
+          - ondas de calor
+      - occurrence: 
+          name: chuva forte
+          severity: 1
+          evolotions:
+          - chuva forte
+          - chuva torrencial
+          - nublado e úmido
+          - sereno
+          - chuva
+          - parcialmente nublado e ameno
+      - occurrence: 
+          name: sereno
+          severity: 0
+          evolotions:
+          - chuva forte
+          - nublado e úmido
+          - agradavel
+          - nublado e quente
+          - garoa
+          - chuva
+    - winter:
+      - item: 
+          
+
+
